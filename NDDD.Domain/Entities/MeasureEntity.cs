@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NDDD.Domain.ValueObjects;
+using System;
 
 namespace NDDD.Domain.Entities
 {
@@ -9,12 +10,12 @@ namespace NDDD.Domain.Entities
             DateTime measureDate,
             float measureValue)
         {
-            AreaId = areaId;
+            AreaId = new AreaId(areaId);
             MeasureDate = measureDate;
             MeasureValue = measureValue;
         }
 
-        public int AreaId { get; }
+        public AreaId AreaId { get; }
         public DateTime MeasureDate { get; }
         public float MeasureValue { get; }
     }

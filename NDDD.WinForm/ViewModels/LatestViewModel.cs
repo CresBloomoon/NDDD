@@ -42,7 +42,7 @@ namespace NDDD.WinForm.ViewModels
         {
             //Search()が呼ばれたら、MeasureEntityをフィールドにて保持する
             var measure = _measureRepository.GetLatest();
-            AreaIdText = measure.AreaId.ToString().PadLeft(4, '0');
+            AreaIdText = measure.AreaId.DisplayValue;
             MeasureDateText = measure.MeasureDate.ToString("yyyy/MM/dd HH:mm:ss");
             MeasureValueText = Math.Round(measure.MeasureValue, 2) + "℃";
         }
