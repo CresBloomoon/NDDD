@@ -4,7 +4,7 @@ using System;
 
 namespace NDDD.Infrastructure.Fake
 {
-    public sealed class MeasureFake : IMeasureRepository
+    internal sealed class MeasureFake : IMeasureRepository
     {
         public MeasureEntity GetLatest()
         {
