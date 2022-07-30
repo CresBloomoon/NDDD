@@ -12,11 +12,11 @@ namespace NDDD.Domain.Entities
         {
             AreaId = new AreaId(areaId);
             MeasureDate = new MeasureDate(measureDate);
-            MeasureValue = measureValue;
+            MeasureValue = new MeasureValue(measureValue);
         }
 
         public AreaId AreaId { get; }
         public MeasureDate MeasureDate { get; }
-        public float MeasureValue { get; }
+        public MeasureValue MeasureValue { get; }
     }
 }
