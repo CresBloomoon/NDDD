@@ -9,6 +9,8 @@ namespace NDDD.Domain
 
         public static string FakePath { get; }
             = ConfigurationManager.AppSettings["FakePath"];
+
+        public static string LoginId { get; set; } = string.Empty;
     }
 }
  
