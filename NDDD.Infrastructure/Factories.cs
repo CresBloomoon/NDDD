@@ -5,8 +5,15 @@ using NDDD.Infrastructure.SqlServer;
 
 namespace NDDD.Infrastructure
 {
+    /// <summary>
+    /// ファクトリクラス
+    /// </summary>
     public static class Factories
     {
+        /// <summary>
+        /// 計測リポジトリの作成
+        /// </summary>
+        /// <returns>計測リポジトリ</returns>
         public static IMeasureRepository CreateMeasure()
         {
 #if DEBUG

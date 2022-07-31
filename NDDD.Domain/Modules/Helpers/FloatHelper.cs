@@ -3,14 +3,16 @@ using System.Linq;
 
 namespace NDDD.Domain.Helpers
 {
+    /// <summary>
+    /// Floatヘルパー
+    /// </summary>
     public static class FloatHelper
     {
         /// <summary>
-        /// decimalPointで指定した小数までを0で埋める
-        /// 例）decimalPointが3なら、1.2を1.200にする
+        /// 指定した桁数で四捨五入し、ゼロを埋める
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="decimalPoint"></param>
+        /// <param name="value">値</param>
+        /// <param name="decimalPoint">小数点以下桁数</param>
         /// <returns></returns>
         public static string RoundString(this float value,
             int decimalPoint)

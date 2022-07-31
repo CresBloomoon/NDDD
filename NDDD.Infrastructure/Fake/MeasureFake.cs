@@ -7,8 +7,16 @@ using System.Collections.Generic;
 
 namespace NDDD.Infrastructure.Fake
 {
+    /// <summary>
+    /// 計測Fake
+    /// </summary>
     internal sealed class MeasureFake : IMeasureRepository
     {
+        /// <summary>
+        /// 直近値の取得
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="FakeException"></exception>
         public MeasureEntity GetLatest()
         {
             try
@@ -35,6 +43,10 @@ namespace NDDD.Infrastructure.Fake
 
         }
 
+        /// <summary>
+        /// エリアごとの直近値の取得
+        /// </summary>
+        /// <returns></returns>
         public IReadOnlyList<MeasureEntity> GetLatests()
         {
             var result = new List<MeasureEntity>();

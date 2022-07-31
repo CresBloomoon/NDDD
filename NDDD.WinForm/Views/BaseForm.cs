@@ -12,12 +12,21 @@ using System.Windows.Forms;
 
 namespace NDDD.WinForm.Views
 {
+    /// <summary>
+    /// Viewの基底クラス
+    /// </summary>
     public partial class BaseForm : Form
     {
+        /// <summary>
+        /// ログ
+        /// </summary>
         private static log4net.ILog _logger =
     log4net.LogManager.GetLogger(
         System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public BaseForm()
         {
             InitializeComponent();
@@ -31,6 +40,10 @@ namespace NDDD.WinForm.Views
 
         }
 
+        /// <summary>
+        /// 例外共通処理
+        /// </summary>
+        /// <param name="ex"></param>
         protected void ExceptionProc(Exception ex)
         {
             _logger.Error(ex.Message, ex);
@@ -55,11 +68,21 @@ namespace NDDD.WinForm.Views
 
         }
 
+        /// <summary>
+        /// 起動時イベント
+        /// </summary>
+        /// <param name="sender">コントロール</param>
+        /// <param name="e">イベント引数</param>
         private void BaseForm_Load(object sender, EventArgs e)
         {
             _logger.Info("open:" + this.Name);
         }
 
+        /// <summary>
+        /// 終了時イベント
+        /// </summary>
+        /// <param name="sender">コントロール</param>
+        /// <param name="e">イベント引数</param>
         private void BaseForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             _logger.Info("close:" + this.Name);
