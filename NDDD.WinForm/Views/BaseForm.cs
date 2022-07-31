@@ -14,6 +14,10 @@ namespace NDDD.WinForm.Views
 {
     public partial class BaseForm : Form
     {
+        private static log4net.ILog _logger =
+    log4net.LogManager.GetLogger(
+        System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public BaseForm()
         {
             InitializeComponent();
@@ -29,6 +33,7 @@ namespace NDDD.WinForm.Views
 
         protected void ExceptionProc(Exception ex)
         {
+            _logger.Error(ex.Message, ex);
             MessageBoxIcon icon = MessageBoxIcon.Error;
             string caption = "エラー";
             var exceptionBase = ex as ExceptionBase;
@@ -48,6 +53,16 @@ namespace NDDD.WinForm.Views
 
             MessageBox.Show(ex.Message, caption, MessageBoxButtons.OK, icon);
 
+        }
+
+        private void BaseForm_Load(object sender, EventArgs e)
+        {
+            _logger.Info("open:" + this.Name);
+        }
+
+        private void BaseForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _logger.Info("close:" + this.Name);
         }
     }
 }
