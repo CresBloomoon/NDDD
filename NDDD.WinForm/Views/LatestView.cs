@@ -1,4 +1,5 @@
-﻿using NDDD.Infrastructure;
+﻿using NDDD.Domain.Exceptions;
+using NDDD.Infrastructure;
 using NDDD.Infrastructure.Fake;
 using NDDD.WinForm.ViewModels;
 using System;
@@ -37,7 +38,32 @@ namespace NDDD.WinForm.Views
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            _viewModel.Search();
+            try
+            {
+                _viewModel.Search();
+            }
+            catch (Exception ex)
+            {
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                string caption = "エラー";
+                var exceptionBase = ex as ExceptionBase;
+                if (null != exceptionBase)
+                {
+                    if (exceptionBase.Kind == ExceptionBase.ExceptionKind.Info)
+                    {
+                        icon = MessageBoxIcon.Information;
+                        caption = "情報";
+                    }
+                    else if (exceptionBase.Kind == ExceptionBase.ExceptionKind.Warning)
+                    {
+                        icon = MessageBoxIcon.Warning;
+                        caption = "警告";
+                    }
+                }
+
+                MessageBox.Show(ex.Message, caption, MessageBoxButtons.OK, icon);
+            }
+
         }
     }
 }

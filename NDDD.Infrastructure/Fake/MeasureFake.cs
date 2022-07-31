@@ -1,5 +1,6 @@
 ﻿using NDDD.Domain;
 using NDDD.Domain.Entities;
+using NDDD.Domain.Exceptions;
 using NDDD.Domain.Repositories;
 using System;
 
@@ -19,12 +20,15 @@ namespace NDDD.Infrastructure.Fake
                     Convert.ToDateTime(value[1]),
                     Convert.ToSingle(value[2]));
             }
-            catch
+            catch(Exception ex)
             {
-                return new MeasureEntity(
-                    10,
-                    Convert.ToDateTime("2020/12/12 12:34:56"),
-                    123.341f);
+                throw new FakeException(
+                    "MeasureFakeの取得に失敗しました",
+                    ex);
+                //return new MeasureEntity(
+                //    10,
+                //    Convert.ToDateTime("2020/12/12 12:34:56"),
+                //    123.341f);
             }
 
 

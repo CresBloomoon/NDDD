@@ -43,6 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\MeasureEntity.cs" />
+    <Compile Include="Exceptions\DataNotExistsException.cs" />
+    <Compile Include="Exceptions\ExceptionBase.cs" />
+    <Compile Include="Exceptions\FakeException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IMeasureRepository.cs" />
     <Compile Include="Repositories\MeasureRepository.cs" />

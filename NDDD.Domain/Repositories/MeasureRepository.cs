@@ -19,6 +19,7 @@ namespace NDDD.Domain.Repositories
         public MeasureEntity GetLatest()
         {
             var val1 = _repository.GetLatest();
+            if (val1 == null) throw new DataMisalignedException();
             System.Threading.Thread.Sleep(1000);
             var val2 = _repository.GetLatest();
             System.Threading.Thread.Sleep(1000);
