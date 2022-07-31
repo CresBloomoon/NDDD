@@ -8,7 +8,7 @@ namespace NDDD.Domain.Logics
 {
     /// <summary>
     /// EntitiesやValueObjectsに入らないような
-    /// 共通ロジック置き場
+    /// 共通ビジネスロジック置き場
     /// </summary>
     public static class MeasureAnalysis
     {
