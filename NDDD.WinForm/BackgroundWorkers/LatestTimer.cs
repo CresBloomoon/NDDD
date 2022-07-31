@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using NDDD.Domain.StaticValues;
+using NDDD.Infrastructure;
+using System.Threading;
 
 namespace NDDD.WinForm.BackgroundWorkers
 {
@@ -15,7 +17,7 @@ namespace NDDD.WinForm.BackgroundWorkers
 
         internal static void Start()
         {
-            _timer.Change(10000, 10000);
+            _timer.Change(0, 10000);
         }
 
         internal static void Stop()
@@ -29,6 +31,7 @@ namespace NDDD.WinForm.BackgroundWorkers
             try
             {
                 _isWork = true;
+                Measures.Create(Factories.CreateMeasure());
             }
             finally
             {
